@@ -9,9 +9,8 @@ var pdxlax = {
 	destination: 'LAX'
 };
 
-// pl contains the functions that the flight module returns
-// i.e., we have a flight!
-var pl = flight(pdxlax);
+// create a flight
+var pl = flight.create(pdxlax);
 
 pl.triggerDepart();
 
@@ -24,8 +23,12 @@ var ausdca = {
 	destination: 'DCA'
 };
 
-var ad = flight(ausdca);
+var ad = flight.create(ausdca);
 
 console.log(ad.getInformation());
 
 console.log(pl.getInformation());
+
+// check the count and destinations
+console.log(flight.getCount());
+console.log(flight.getDestinations());

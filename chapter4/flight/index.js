@@ -1,3 +1,7 @@
+// flight counter and destinations holder
+var count = 0,
+	destinations = [];
+
 // for new objects
 var Flight = function() {
 	this.data = {
@@ -31,12 +35,26 @@ var Flight = function() {
 	};
 }
 
-// pass in an info object, the values of which will be used used to set the
-// values of the values object
-module.exports = function(info) {
+// instead of module.exports
+exports.create = function(info) {
 	var instance = new Flight();
 	
 	instance.fill(info);
 	
+	count++;
+	if (destinations.indexOf(info['destination']) < 0) {
+		destinations.push(info['destination']);
+	}
+	
 	return instance;
-};
+}
+
+// count getter
+exports.getCount = function() {
+	return count;
+}
+
+// destinations getter
+exports.getDestinations = function() {
+	return destinations;
+}
