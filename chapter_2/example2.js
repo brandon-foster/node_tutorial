@@ -1,4 +1,4 @@
-var relay = require('./relay');
+var relay = require('./relay'); // looks for folder relay, then index.js
 
 prefix = "Attention: ";
 
