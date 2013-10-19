@@ -5,6 +5,7 @@ var http = require('http'),
 // use the express module
 var app = express();
 
+// handle requests to root by outputting 'Airline'
 app.get('/', function(req, res) {
 	res.end('Airline');
 });
