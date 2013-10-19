@@ -10,6 +10,7 @@ var Flight = function() {
 		actualArrive: null
 	};
 	
+	// populate the flight properties
 	this.fill = function(info) {
 		for(var prop in this.data) {
 			if(this.data[prop] !== 'undefined') {
