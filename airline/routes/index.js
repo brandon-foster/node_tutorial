@@ -3,15 +3,27 @@
  * GET home page.
  */
 
-var data = require('../data');
+// require data
+var flights = require('../data');
 
 // require flight module
 var flight = require('../flight');
 
-exports.flight1 = function(req, res) {
-  res.json(flight1.getInformation());
-};
+// process data in data/index.js and turn properties into objects
+for (var number in flights) {
+  // set each flight property to an object created by the flight module
+  flights[number] = flight.create(flights[number])
+}
 
-exports.flight2 = function(req, res) {
-  res.json(flight2.getInformation());
+
+// define function for looking up data and returning it
+exports.flight = function(req, res) {
+  
+  var number = req.param('number');
+  
+  if (typeof flights[number] === 'undefined') {
+	res.status(404).json({status: 'error'});
+  } else {
+	res.json(flights[number].getInformation());
+  }
 };

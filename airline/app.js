@@ -26,10 +26,8 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-// handle get requests to specified paths by responding with
-// the routes flight1 and flight2 (located in routes/index.js)
-app.get('/flight1', routes.flight1);
-app.get('/flight2', routes.flight2)
+// define route for matching /flight/:number
+app.get('/flight/:number', routes.flight);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
