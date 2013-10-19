@@ -1,12 +1,6 @@
-// only exporting one function. a new function scope is created each time the
-// function is called
-
-// pass in an info object, the values of which will be used used to set the
-// values of the values object
-module.exports = function(info) {
-
-	// define object for flight values
-	var values = {
+// for new objects
+var Flight = function() {
+	this.data = {
 		number: null,
 		origin: null,
 		destination: null,
@@ -15,30 +9,29 @@ module.exports = function(info) {
 		actualDepart: null,
 		actualArrive: null
 	};
-
-	// sets values of the values object
-	for(var prop in values) {
-		if(values[prop] !== 'undefined') {
-			values[prop] = info[prop];
-		}
-	}
-
-	// define functions for:
-	// departure time
-	// arrival time
-	// getter for the value object
-	var functions = {
-		triggerDepart: function() {
-			values.actualDepart = Date.now();
-		},
-		triggerArrive: function() {
-			values.actualArrive = Date.now();
-		},
-		getInformation: function() {
-			return values;
+	
+	this.fill = function(info) {
+		for(var prop in this.data) {
+			if(this.data[prop] !== 'undefined') {
+				this.data[prop] = info[prop];
+			}
 		}
 	};
+	
+	this.triggerDepart = function() {
+		this.data.actualDepart = Date.now();
+	};
+	this.triggerArrive = function() {
+		this.data.actualArrive = Date.now();
+	};
+	
+	this.getInformation = function() {
+		return this.data;
+	};
+}
 
-	return functions; // return the functions object
+// pass in an info object, the values of which will be used used to set the
+// values of the values object
+module.exports = function(info) {
 
 };
