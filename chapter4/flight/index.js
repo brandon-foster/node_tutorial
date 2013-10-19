@@ -33,5 +33,9 @@ var Flight = function() {
 // pass in an info object, the values of which will be used used to set the
 // values of the values object
 module.exports = function(info) {
-
+	var instance = new Flight();
+	
+	instance.fill(info);
+	
+	return instance;
 };
