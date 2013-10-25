@@ -6,7 +6,7 @@ __Following along in a node.js tutorial__
 ## Tutorial Contents
 
 ### Chapter 1
-* get set up with Node.js and NPM (Node Packaged Modules), official package manager for Node.js
+* getting set up with Node.js and NPM
 
 ### Chapter 2
 * requiring modules
