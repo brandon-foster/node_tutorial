@@ -18,6 +18,18 @@ app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
+
+// our own middleware for all requests that
+app.use(function(req, res, next) {
+  
+  // resets the X-Powered-By header that Express places by default
+  res.set('X-Powered-By', 'Flight Tracker');
+  
+  // must call the next function for server continue and return a  response
+  // continues to the 'next' piece of middleware
+  next();
+});
+
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
