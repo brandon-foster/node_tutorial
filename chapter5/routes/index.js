@@ -20,3 +20,18 @@ exports.flight = function(req, res){
 		res.json(flights[number].getInformation());
 	}
 };
+
+// sending PUT requests to certain flight numbers will
+// mark them as arrived and respond with {status: 'done'}
+exports.arrived = function(req, res) {
+	var number = req.param('number');
+
+	if (typeof flights[number] === 'undefined') {
+		res.status(404).json({status: 'error'});
+	} else {
+		// triggerArrive() method
+		flights[number].triggerArrive();
+		// send a status
+		res.json({status: 'done'});
+	}
+};
