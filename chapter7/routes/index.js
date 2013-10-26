@@ -6,7 +6,7 @@
 // include schema to save records to database
 var FlightSchema = require('../schemas/flights');
 
-module.exports = function (flights) {
+module.exports = function(flights) {
 	var flight = require('../flight');
 
 	for(var number in flights) {
@@ -25,7 +25,7 @@ module.exports = function (flights) {
 		}
 	};
 
-	functions.arrived = function (req, res) {
+	functions.arrived = function(req, res) {
 		var number = req.param('number');
 		
 		if (typeof flights[number] === 'undefined') {
@@ -52,10 +52,27 @@ module.exports = function (flights) {
 		}
 	};
 
-	functions.list = function (req, res) {
+	functions.list = function(req, res) {
 		res.render('list', {
 			title: 'All Flights', 
 			flights: flights});
+	};
+	
+	// route handler for arrivals
+	functions.arrivals = function(req, res) {
+		FlightSchema.find()
+		.setOptions({sort: 'actualArrive'})
+		.exec(function(err, arrivals) {
+			if (err) {
+				console.log(err);
+				res.status(500).json({status: 'failure'});
+			} else {
+				res.render('arrivals', {
+					title: 'Arrivals',
+					arrivals: arrivals
+				});
+			}
+		});
 	};
 
 	return functions;
