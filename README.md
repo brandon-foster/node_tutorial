@@ -31,3 +31,4 @@ __Following along in a node.js tutorial__
 
 ### Chapter 6 - Unit Testing
 * decoupling data from application prior to testing
+* using the Mocha test framework (http://visionmedia.github.io/mocha/)
