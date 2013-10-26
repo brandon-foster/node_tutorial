@@ -2,7 +2,9 @@
 // responsible for creating the server
 
 var http = require('http'),
-	app = require('./app'); // store app.js
+	flights = require('./data'), // require the flights data, which can
+								 // be changed to anything easily in the future
+	app = require('./app')(flights); // pass flights to app.js
 
 
 http.createServer(app).listen(app.get('port'), function(){
