@@ -8,5 +8,10 @@
   "dependencies": {
     "express": "3.4.0",
     "jade": "*"
+  },
+  "devDependencies": {
+    "mocha": "~1.13.0",
+    "should": "~2.0.2",
+    "supertest": "~0.8.0"
   }
 }
