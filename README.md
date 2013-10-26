@@ -27,3 +27,4 @@ __Following along in a node.js tutorial__
 * using request variables in routes for navigating large data sets
 * handling PUT requests to modify data
 * modifing HTTP headers
+* using Jade to generate HTML views
