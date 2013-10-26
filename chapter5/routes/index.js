@@ -36,6 +36,8 @@ exports.arrived = function(req, res) {
 	}
 };
 
+// render Jade generated HTML view and send variables (with values) to send to
+// list.jade
 exports.list = function(req, res) {
 	
 	// parameters: view to load, object with data to pass to view
