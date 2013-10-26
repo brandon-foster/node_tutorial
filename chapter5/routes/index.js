@@ -35,3 +35,11 @@ exports.arrived = function(req, res) {
 		res.json({status: 'done'});
 	}
 };
+
+exports.list = function(req, res) {
+	
+	// parameters: view to load, object with data to pass to view
+	res.render('list', {
+		title: 'All Flights',
+		flights: flights });
+}
