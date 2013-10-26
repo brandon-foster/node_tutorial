@@ -44,4 +44,16 @@ exports.list = function(req, res) {
 	res.render('list', {
 		title: 'All Flights',
 		flights: flights });
-}
+};
+
+// return all flights in JSON
+exports.listJson = function(req, res) {
+	
+	var flightData = [];
+	
+	for (var number in flights) {
+		flightData.push(flights[number].getInformation());
+	}
+	
+	res.json(flightData);
+};
