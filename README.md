@@ -28,3 +28,6 @@ __Following along in a node.js tutorial__
 * handling PUT requests to modify data
 * modifing HTTP headers
 * using Jade to generate HTML views
+
+### Chapter 6 - Unit Testing
+* decoupling data from application prior to testing
