@@ -33,3 +33,8 @@ __Following along in a node.js tutorial__
 * decoupling data from application prior to testing
 * using the Mocha test framework (http://visionmedia.github.io/mocha/)
 * using SuperTest to mock HTTP requests
+
+### Chapter 7 - Sessions and Databases
+* using Mongoose module to connect to MongoDB
+* defining schemas for collections in Mongoose
+* querying MongoDB collections
