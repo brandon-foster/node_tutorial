@@ -38,3 +38,5 @@ __Following along in a node.js tutorial__
 * using Mongoose module to connect to MongoDB
 * defining schemas for collections in Mongoose
 * querying MongoDB collections
+* set up Express to use sessions with connect-mongo
+* set properties on request sessions
