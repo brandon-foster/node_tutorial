@@ -8,6 +8,10 @@ module.exports = function (flights, db) {
 	var express = require('express');
 	// pass Express into connect-mongo
 	var MongoStore = require('connect-mongo')(express);
+	
+	// auth.js module we defined
+	var passport = require('./auth');
+	
 	var routes = require('./routes')(flights);
 	var path = require('path');	
 	var app = express();
@@ -30,6 +34,10 @@ module.exports = function (flights, db) {
 		})
 	}));
 	
+	// passport
+	app.use(passport.initialize());
+	app.use(passport.session()); // have passport store sessions
+	
 	app.use(express.bodyParser());
 	app.use(express.methodOverride());
 	app.use(function (req, res, next) {
@@ -48,7 +56,19 @@ module.exports = function (flights, db) {
 	app.put('/flight/:number/arrived', routes.arrived);
 	app.get('/list', routes.list);
 	app.get('/arrivals', routes.arrivals);
-
+	
+	// routes for displaying login forom
+	app.get('/login', routes.login);
+	
+	// route to handle login form
+	app.post('/login', passport.authenticate('local', {
+		failureRedirect: '/login',
+		successRedirect: '/user'
+	}));
+	
+	// route for displaying user information after login
+	app.get('/user', routes.user);
+	
 	return app;
 }
 

@@ -1,9 +1,12 @@
-var passport = require('passport'),
-	LocalStrategy = require('passport-local').Strategy;
+var passport = require('passport'), // main library
+	LocalStrategy = require('passport-local').Strategy; // Strategry property
+														// from passport-local
+														// module
 
-passport.use(new LocalStrategy(
+passport.use(new LocalStrategy( // most flexible strategy for custom login
+							    // logic
 	function(username, password, done) {
-		if (username === 'admin' && password === 'lynda') {
+		if (username === 'admin' && password === 'password') {
 			return done(null, {username: 'admin'});
 		}
 
