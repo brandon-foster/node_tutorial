@@ -40,3 +40,4 @@ __Following along in a node.js tutorial__
 * querying MongoDB collections
 * set up Express to use sessions with connect-mongo
 * set properties on request sessions
+* use Passport (Express middleware) for custom logins
