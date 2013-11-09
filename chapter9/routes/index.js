@@ -5,6 +5,33 @@
 
 var FlightSchema = require('../schemas/flight');
 
+// event is a core module in Node.js
+var Emitter = require('events').EventEmitter;
+
+var flightEmitter = new Emitter(); // create a new instance of Emitter
+
+var flightEmitter = new Emitter(); // create a new instance of Emitter
+
+// create an arrival listener that respos
+flightEmitter.on('arrival', function(flight) {
+	var record = new FlightSchema(
+		flight.getInformation()
+	);
+
+	record.save(function(err) {
+		if (err) {
+			console.log(err);
+		}
+	});
+
+});
+
+// create an arrival listener that responds on the command line
+flightEmitter.on('arrival', function(flight) {
+	console.log("Flight arrived: " + flight.data.number);
+});
+
+
 module.exports = function (flights) {
 	var flight = require('../flight');
 
@@ -26,6 +53,7 @@ module.exports = function (flights) {
 		}
 	};
 
+	
 	functions.arrived = function (req, res) {
 		var number = req.param('number');
 
@@ -33,21 +61,12 @@ module.exports = function (flights) {
 			res.status(404).json({status: 'error'});
 		} else {
 			flights[number].triggerArrive();
-
-			var record = new FlightSchema(
-				flights[number].getInformation()
-			);
-
-			record.save(function(err) {
-				if (err) {
-					console.log(err);
-					res.status(500).json({status: 'failure'});
-				} else {
-					res.json({status: 'success'});
-				}
-			});
-
-			res.json({status: 'done'});
+			
+			// arguments: type, data to be passed in the event
+			flightEmitter.emit('arrival', flights[number]);
+			
+			// send the success status
+			res.json({status: 'success'});
 		}
 	};
 
