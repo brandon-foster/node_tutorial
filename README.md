@@ -3,7 +3,7 @@ node_tutorial
 
 __Following along in a node.js tutorial__
 
-## Tutorial Contents
+## Contents
 
 ### Chapter 1 - Set Up
 * getting set up with Node.js and NPM
@@ -30,12 +30,11 @@ __Following along in a node.js tutorial__
 * using Jade to generate HTML views
 
 ### Chapter 6 - Unit Testing
-* decoupling data from application prior to testing
 * using the Mocha test framework (http://visionmedia.github.io/mocha/)
 * using SuperTest to mock HTTP requests
 
 ### Chapter 7 - Sessions and Databases
-* using Mongoose module to connect to MongoDB
+* using the Mongoose module to connect to MongoDB
 * defining schemas for collections in Mongoose
 * querying MongoDB collections
 * set up Express to use sessions with connect-mongo
