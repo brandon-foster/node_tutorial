@@ -48,3 +48,4 @@ __Following along in a node.js tutorial__
 * install a node project as a global module
 * use event emitters to send data to listeners asynchronously
 * streaming chunked data
+* controlling readable streams
