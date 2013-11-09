@@ -5,6 +5,17 @@ var fs = require('fs');
 // instead of reading the file at once, reads it one chunk at a time
 var stream = fs.createReadStream('data.json');
 
+// pause stream before any listeners can respond to an incoming chunk
+stream.pause();
+
+console.log('paused');
+
+// wait one second to resume the stream
+setTimeout(function() {
+	console.log('resuming...');
+	stream.resume();
+}, 1000);
+
 // listener to data event, accepting a chunk as an argument
 stream.on('data', function (chunk) {
 	console.log('----------------begin chunk----------------');
