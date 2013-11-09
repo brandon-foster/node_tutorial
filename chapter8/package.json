@@ -9,7 +9,8 @@
     "express": "3.4.0",
     "jade": "*",
     "mongoose": "~3.6.19",
-    "connect-mongo": "~0.3.3"
+    "connect-mongo": "~0.3.3",
+    "optimist": "~0.6.0"
   },
   "devDependencies": {
     "mocha": "~1.12.1",
