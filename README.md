@@ -52,3 +52,4 @@ __Following along in a node.js tutorial__
 * streaming chunked data
 * controlling readable streams
 * piping readable data into writable streams
+* handling duplex streams over TCP
