@@ -51,3 +51,4 @@ __Following along in a node.js tutorial__
 * use event emitters to send data to listeners asynchronously
 * streaming chunked data
 * controlling readable streams
+* piping readable data into writable streams
