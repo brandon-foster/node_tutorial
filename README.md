@@ -46,3 +46,4 @@ __Following along in a node.js tutorial__
 * use the context object to make global variables available to the repl
 * use Optimist (https://github.com/substack/node-optimist) for an app to use command line options
 * install a node project as a global module
+* use event emitters to send data to listeners asynchronously
